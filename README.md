@@ -2,7 +2,7 @@
 
 This guide describes the simplest way to start using ML backend with Label Studio.
 
-This project provides a custom Label Studio ML backend that connects to the Roboflow API for object detection inference. It was bootstrapped using the official [Label Studio ML Backend template](https://github.com/HumanSignal/label-studio-ml-backend).
+This project provides a custom Label Studio ML backend that connects to the Roboflow API for object detection inference. It specifically uses the `newspaper-only-articles/4` model for detecting layout elements like articles, titles, and images in newspaper scans. It was bootstrapped using the official [Label Studio ML Backend template](https://github.com/HumanSignal/label-studio-ml-backend).
 
 ## Prerequisites
 
@@ -22,7 +22,7 @@ Before running, you need a Roboflow API key.
 2.  **Start Machine Learning backend:** Run the following command on `http://localhost:9090`:
 
     ```bash
-    docker-compose up --build -d
+    docker compose up --build -d
     ```
     *(The `--build` flag is only strictly necessary the first time or after code changes, `-d` runs it in detached mode).*
 
@@ -41,7 +41,7 @@ Before running, you need a Roboflow API key.
 To build the ML backend from source, you first need to ensure the `.env` file exists as described in the "Running with Docker" section. Then, build the Docker image:
 
 ```bash
-docker-compose build
+docker compose build
 ```
 
 ## Running without Docker (Advanced)

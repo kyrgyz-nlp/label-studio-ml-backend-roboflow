@@ -5,9 +5,26 @@ from PIL import Image
 from io import BytesIO
 import os
 
-class RoboflowModel(LabelStudioMLBase):
+class NewspaperLayoutBBDetector(LabelStudioMLBase):
+    """
+    Label Studio ML Backend model that uses a Roboflow model 
+    (newspaper-only-articles/4) to detect elements in newspaper images.
+
+    Model Details:
+    - Author: NVQA YoloV8 Only Articles
+    - URL: https://universe.roboflow.com/nvqa-yolov8-only-articles/newspaper-only-articles
+    - Type: Object Detection
+    - Base Model: YOLOv8 (snap, yolov8s, yolov8l variants)
+    - Classes: 
+        - article-author
+        - article-body
+        - article-image
+        - article-image-caption
+        - article-image-image
+        - article-title
+    """
     def __init__(self, **kwargs):
-        super(RoboflowModel, self).__init__(**kwargs)
+        super(NewspaperLayoutBBDetector, self).__init__(**kwargs)
         api_key = os.getenv("ROBOFLOW_API_KEY")
         if not api_key:
             raise ValueError("ROBOFLOW_API_KEY environment variable not set.")
